@@ -17,78 +17,82 @@ const Categories = () => {
     {
       _id: "1",
       name: "Electronics",
-      imageUrl: "https://via.placeholder.com/100x100/007BFF/ffffff?text=Electronics"
+      imageUrl:
+        "https://via.placeholder.com/100x100/007BFF/ffffff?text=Electronics",
     },
     {
       _id: "2",
       name: "Clothing",
-      imageUrl: "https://via.placeholder.com/100x100/E63946/ffffff?text=Clothing"
+      imageUrl:
+        "https://via.placeholder.com/100x100/E63946/ffffff?text=Clothing",
     },
     {
       _id: "3",
       name: "Books",
-      imageUrl: "https://via.placeholder.com/100x100/28A745/ffffff?text=Books"
+      imageUrl: "https://via.placeholder.com/100x100/28A745/ffffff?text=Books",
     },
     {
       _id: "4",
       name: "Home & Garden",
-      imageUrl: "https://via.placeholder.com/100x100/FFC107/000000?text=Home"
+      imageUrl: "https://via.placeholder.com/100x100/FFC107/000000?text=Home",
     },
     {
       _id: "5",
       name: "Sports",
-      imageUrl: "https://via.placeholder.com/100x100/DC3545/ffffff?text=Sports"
+      imageUrl: "https://via.placeholder.com/100x100/DC3545/ffffff?text=Sports",
     },
     {
       _id: "6",
       name: "Automotive",
-      imageUrl: "https://via.placeholder.com/100x100/6F42C1/ffffff?text=Auto"
+      imageUrl: "https://via.placeholder.com/100x100/6F42C1/ffffff?text=Auto",
     },
     {
       _id: "7",
       name: "Toys",
-      imageUrl: "https://via.placeholder.com/100x100/20C997/ffffff?text=Toys"
+      imageUrl: "https://via.placeholder.com/100x100/20C997/ffffff?text=Toys",
     },
     {
       _id: "8",
       name: "Health",
-      imageUrl: "https://via.placeholder.com/100x100/FD7E14/ffffff?text=Health"
+      imageUrl: "https://via.placeholder.com/100x100/FD7E14/ffffff?text=Health",
     },
     {
       _id: "9",
       name: "Beauty",
-      imageUrl: "https://via.placeholder.com/100x100/198754/ffffff?text=Beauty"
+      imageUrl: "https://via.placeholder.com/100x100/198754/ffffff?text=Beauty",
     },
     {
       _id: "10",
       name: "Food & Grocery",
-      imageUrl: "https://via.placeholder.com/100x100/0DCAF0/000000?text=Food"
+      imageUrl: "https://via.placeholder.com/100x100/0DCAF0/000000?text=Food",
     },
     {
       _id: "11",
       name: "Jewelry",
-      imageUrl: "https://via.placeholder.com/100x100/6610F2/ffffff?text=Jewelry"
+      imageUrl:
+        "https://via.placeholder.com/100x100/6610F2/ffffff?text=Jewelry",
     },
     {
       _id: "12",
       name: "Shoes",
-      imageUrl: "https://via.placeholder.com/100x100/17A2B8/ffffff?text=Shoes"
+      imageUrl: "https://via.placeholder.com/100x100/17A2B8/ffffff?text=Shoes",
     },
     {
       _id: "13",
       name: "Furniture",
-      imageUrl: "https://via.placeholder.com/100x100/343A40/ffffff?text=Furniture"
+      imageUrl:
+        "https://via.placeholder.com/100x100/343A40/ffffff?text=Furniture",
     },
     {
       _id: "14",
       name: "Music",
-      imageUrl: "https://via.placeholder.com/100x100/E83E8C/ffffff?text=Music"
+      imageUrl: "https://via.placeholder.com/100x100/E83E8C/ffffff?text=Music",
     },
     {
       _id: "15",
       name: "Movies",
-      imageUrl: "https://via.placeholder.com/100x100/6C757D/ffffff?text=Movies"
-    }
+      imageUrl: "https://via.placeholder.com/100x100/6C757D/ffffff?text=Movies",
+    },
   ]);
   const [openAddModal, setOpenAddModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
@@ -133,24 +137,12 @@ const Categories = () => {
       key: "sl",
       render: (_, __, index) => (currentPage - 1) * pageSize + (index + 1),
     },
+
     {
-      title: "Image",
-      dataIndex: "image",
-      key: "image",
-      align: "center",
-      render: (_, record) => (
-        <img
-          src={record.imageUrl}
-          alt={record.name}
-          className="w-10 h-10 object-cover rounded mx-auto"
-        />
-      ),
-    },
-    {
-      title: "Category Name",
+      title: "Session Category Name",
       dataIndex: "name",
       key: "name",
-      align: "center",
+      align: "start",
     },
     {
       title: "Actions",
@@ -180,22 +172,14 @@ const Categories = () => {
       <div className="flex justify-between mb-4">
         <Navigate title={"Category"} />
         <div className="flex gap-5">
-          <Input
-            onChange={(e) => {
-              setSearch(e.target.value);
-              setCurrentPage(1); // Reset to first page on search
-            }}
-            placeholder="Search by name..."
-            prefix={<SearchOutlined />}
-            style={{ maxWidth: "500px", height: "40px" }}
-          />
+        
           <div>
             {" "}
             <button
               onClick={() => setOpenAddModal(true)}
-              className="bg-[#E63946] w-[150px] text-white py-2 rounded"
+              className="bg-[#0C8A8A] w-[150px] text-white py-2 rounded"
             >
-              Add Category
+              + Add Category
             </button>
           </div>
         </div>

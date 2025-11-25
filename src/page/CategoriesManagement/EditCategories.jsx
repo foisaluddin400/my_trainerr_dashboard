@@ -81,45 +81,43 @@ const EditCategories = ({ editModal, setEditModal, selectedCategory }) => {
       width={600}
       destroyOnClose // ✅ clears content when modal closes
     >
-      <div className="mb-20 mt-4">
-        <div className="font-bold text-center mb-11">Edit Category</div>
-        <Form
-          form={form}
-          layout="vertical"
-          onFinish={handleSubmit}
-          className="px-2"
-        >
-          <Form.Item
-            label="Category Name"
-            name="name"
-            rules={[{ required: true, message: "Please input title" }]}
-          >
-            <Input placeholder="Enter title" style={{ height: "40px" }} />
-          </Form.Item>
-
-          <Form.Item label="Photos">
-            <Upload
-              listType="picture-card"
-              fileList={fileList}
-              onChange={onChange}
-              onPreview={onPreview}
-              multiple={false}
-            >
-              {fileList.length < 1 && "+ Upload"}
-            </Upload>
-          </Form.Item>
-
-          <Form.Item>
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-2 mt-2 bg-[#E63946] text-white rounded-md"
-            >
-              {loading ? <Spin size="small" /> : "Update"}
-            </button>
-          </Form.Item>
-        </Form>
-      </div>
+    <div className=" ">
+            <div>
+              <div className="font-semibold text-3xl text-center mb-5">Update Category</div>
+              <p className="text-neutral-700 text-center mb-7">Fill Out details below to add a new session category. Make sure the name clearly represents the type of session.</p>
+    
+              <Form
+                form={form}
+                layout="vertical"
+                onFinish={handleSubmit}
+                className="px-2"
+              >
+                <Form.Item
+                  label="Session Category Name"
+                  name="name"
+                  rules={[{ required: true, message: "Please input name!" }]}
+                >
+                  <Input
+                    placeholder="Enter Session category name"
+                    style={{ height:"40px" }}
+                  />
+                </Form.Item>
+    
+           
+    
+                {/* Save Button */}
+                <Form.Item>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-3 mt-2 bg-[#0C8A8A] text-white rounded-md"
+                  >
+                    {loading ? <Spin size="small" /> : "Save Changes"}
+                  </button>
+                </Form.Item>
+              </Form>
+            </div>
+          </div>
     </Modal>
   );
 };

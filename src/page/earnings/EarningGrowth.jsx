@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { Select } from "antd";
 
-const UserGrowthChart = () => {
+const EarningGrowth = () => {
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
   const [years, setYears] = useState([]);
@@ -69,7 +69,7 @@ const UserGrowthChart = () => {
             fontSize: "18px",
           }}
         >
-        Users Join growth
+        Earning Growth
         </h3>
         <Select
           className="min-w-32"
@@ -84,10 +84,11 @@ const UserGrowthChart = () => {
           options={years.map((item) => ({ value: item, label: item }))}
         />
       </div>
-      <ResponsiveContainer width="100%" height="90%">
+      <ResponsiveContainer width="100%" height={200}>
+
         <BarChart
           data={monthlyData}
-          margin={{ top: 20, right: 20, left: 0, bottom: 10 }}
+          margin={{ top: 20, right: 20, left: 0,   }}
         >
           <defs>
             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
@@ -117,7 +118,7 @@ const UserGrowthChart = () => {
             }}
             cursor={{ fill: "#edc4c52d" }}
           />
-          <Legend wrapperStyle={{ fontSize: "13px", fontWeight: "bold" }} />
+         
           <Bar
             dataKey="totalUser"
             fill="url(#colorValue)"
@@ -130,4 +131,4 @@ const UserGrowthChart = () => {
   );
 };
 
-export default UserGrowthChart;
+export default EarningGrowth;

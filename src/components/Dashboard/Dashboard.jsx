@@ -6,44 +6,47 @@ import UserGrowthChart from "./UserGrowthChart";
 import { HiOutlineUserGroup } from "react-icons/hi2";
 import { VscNote } from "react-icons/vsc";
 import { PiMoneyLight } from "react-icons/pi";
+import ProviderJoinGrowth from "./ProviderJoinGrowth";
 const Dashboard = () => {
   return (
     <div className=" ">
       <div className="grid grid-cols-4 gap-4">
-        <div className="flex gap-4 items-center bg-white p-6 rounded shadow">
-          <div className="bg-red-100 w-[55px] rounded-full h-[55px] flex justify-center items-center text-3xl">
-            <HiOutlineUserGroup className="text-red-500" />
+        <div className=" gap-4  bg-[#DCFCE7] p-6 border border-[#479A43] rounded">
+          <div className="bg-[#86EFAC] w-[55px] rounded-md h-[55px] flex justify-center items-center text-3xl">
+            <HiOutlineUserGroup className="text-[#479A43]" />
           </div>
           <div>
-            <h1 className="font-semibold text-2xl">1,100</h1>
-            <h1 className="text-zinc-500"> Total User</h1>
+            <h1 className=" py-3 text-3xl"> Total User</h1>
+            <h1 className="font-semibold text-[#479A43] text-5xl">1,100</h1>
           </div>
         </div>
-        <div className="flex gap-4 items-center bg-white p-6 rounded shadow">
-          <div className="bg-sky-100 w-[55px] rounded-full h-[55px] flex justify-center items-center text-3xl">
-            <RiUserForbidLine className="text-sky-600" />
+
+        <div className=" gap-4  bg-[#E0FFFF] p-6 border border-[#0C8A8A] rounded">
+          <div className="bg-[#99F6E4] w-[55px] rounded-md h-[55px] flex justify-center items-center text-3xl">
+            <RiUserForbidLine className="text-[#0C8A8A]" />
           </div>
           <div>
-            <h1 className="font-semibold text-2xl">1,100</h1>
-            <h1 className="text-zinc-500"> User Block</h1>
+            <h1 className=" py-3 text-3xl"> Blocked Users</h1>
+            <h1 className="font-semibold text-[#0C8A8A] text-5xl">1,100</h1>
           </div>
         </div>
-        <div className="flex gap-4 items-center bg-white p-6 rounded shadow">
-          <div className="bg-green-100 w-[55px] rounded-full h-[55px] flex justify-center items-center text-3xl">
-            <VscNote className="text-green-500" />
+
+        <div className=" gap-4  bg-[#DCFCE7] p-6 border border-[#479A43] rounded">
+          <div className="bg-[#86EFAC] w-[55px] rounded-md h-[55px] flex justify-center items-center text-3xl">
+            <HiOutlineUserGroup className="text-[#479A43]" />
           </div>
           <div>
-            <h1 className="font-semibold text-2xl">1,100</h1>
-            <h1 className="text-zinc-500"> Total Subscriber</h1>
+            <h1 className=" py-3 text-3xl"> Total Providers</h1>
+            <h1 className="font-semibold text-[#479A43] text-5xl">1,100</h1>
           </div>
         </div>
-        <div className="flex gap-4 items-center bg-white p-6 rounded shadow">
-          <div className="bg-purple-100 w-[55px] rounded-full h-[55px] flex justify-center items-center text-3xl">
-            <PiMoneyLight className="text-purple-500" />
+        <div className=" gap-4  bg-[#E0FFFF] p-6 border border-[#0C8A8A] rounded">
+          <div className="bg-[#99F6E4] w-[55px] rounded-md h-[55px] flex justify-center items-center text-3xl">
+            <RiUserForbidLine className="text-[#0C8A8A]" />
           </div>
           <div>
-            <h1 className="font-semibold text-2xl">1,100</h1>
-            <h1 className="text-zinc-500"> Total Earning</h1>
+            <h1 className=" py-3 text-3xl"> Blocked Providers</h1>
+            <h1 className="font-semibold text-[#0C8A8A] text-5xl">1,100</h1>
           </div>
         </div>
       </div>
@@ -53,7 +56,7 @@ const Dashboard = () => {
         </div>
         <div className=" bg-white p-4 rounded shadow ">
           {/* <ActivityStatisticsChart /> */}
-          <BookingGrowth></BookingGrowth>
+          <ProviderJoinGrowth></ProviderJoinGrowth>
         </div>
       </div>
 

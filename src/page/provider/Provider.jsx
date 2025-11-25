@@ -8,7 +8,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { LuEye } from "react-icons/lu";
 import { Navigate } from "../../Navigate";
 
-const UserManagement = () => {
+const Provider = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
@@ -44,44 +44,97 @@ const UserManagement = () => {
     message.success(`User with ID ${id} blocked/unblocked successfully`);
   };
 
-  const columns = [
-    { title: "No", dataIndex: "no", key: "no" },
-    {
-      title: "Name",
-      key: "name",
-      render: (_, record) => (
-        <div className="flex items-center gap-3">
-          <img
-            src={record.image}
-            className="w-10 h-10 object-cover rounded-full"
-            alt="User Avatar"
-          />
-          <span>{record.name}</span>
-        </div>
-      ),
-    },
-    { title: "Phone Number", dataIndex: "phone", key: "phone" },
-    { title: "Email", dataIndex: "email", key: "email" },
-    {
-      title: "Action",
-      key: "action",
-      render: (_, record) => (
-        <div className="flex gap-2 items-center">
-          <button className="text-2xl" onClick={() => showModal2(record)}>
-            <LuEye />
-          </button>
-          <button
-            onClick={() => handleBlockUnblock(record?.block)}
-            className={`w-[30px] h-[30px] flex justify-center items-center text-xl rounded-md ${
-              record.blockId ? "bg-green-600" : "bg-red-600"
-            } text-white`}
-          >
-            <MdBlockFlipped />
-          </button>
-        </div>
-      ),
-    },
-  ];
+const columns = [
+      {
+    title: "SL",
+    dataIndex: "no",
+    key: "no",
+    render: (_, record, index) => index + 1,
+  },
+  {
+    title: "Name",
+    key: "name",
+    render: (_, record) => (
+      <div className="flex items-center gap-3">
+        <img
+          src={record.image}
+          className="w-10 h-10 object-cover rounded-full"
+          alt="User Avatar"
+        />
+        <span>{record.name}</span>
+      </div>
+    ),
+  },
+  {
+    title: "Email",
+    dataIndex: "email",
+    key: "email",
+  },
+  {
+    title: "Joined On",
+    key: "createdAt",
+    render: (_, record) => <span>{record.createdAt}</span>,
+  },
+  {
+    title: "Verification",
+    key: "verify",
+    render: (_, record) => (
+      <span
+        className={
+          record.blockId
+            ? "text-green-500"
+            : "text-red-500"
+        }
+      >
+        {record.blockId ? "Verified" : "Unverified"}
+      </span>
+    ),
+  },
+  {
+    title: "Expertise",
+    key: "expertise",
+    render: () => (
+      <div className="flex items-center gap-2">
+        <span className="px-3 py-1 rounded-full border text-red-500 border-red-400">
+          CrossFit 💪
+        </span>
+        <span className="px-2 py-1 rounded-full border text-red-500 border-red-400">
+          +2
+        </span>
+      </div>
+    ),
+  },
+  {
+    title: "Status",
+    key: "status",
+    render: (_, record) => (
+      <span className={record.blockId ? "text-green-500" : "text-red-500"}>
+        {record.blockId ? "Active" : "Blocked"}
+      </span>
+    ),
+  },
+  {
+    title: "Actions",
+    key: "action",
+    render: (_, record) => (
+      <div className="flex gap-2 items-center">
+        <button className="text-2xl" onClick={() => showModal2(record)}>
+          <LuEye />
+        </button>
+
+        <button
+          onClick={() => handleBlockUnblock(record?.block)}
+          className={`w-[30px] h-[30px] flex justify-center items-center text-xl rounded-md ${
+            record.blockId ? "bg-green-600" : "bg-red-600"
+          } text-white`}
+        >
+          <MdBlockFlipped />
+        </button>
+      </div>
+    ),
+  },
+];
+
 
   // Pagination
   const handlePageChange = (page) => {
@@ -96,15 +149,15 @@ const UserManagement = () => {
   return (
     <div className="bg-white p-3 h-[87vh] overflow-auto ">
       <div className="flex justify-between ">
-        <Navigate title={"User Management"} />
+        <Navigate title={"Providers"} />
         <div className="flex gap-2">
-           <div>
+          <div>
             <Select
-              defaultValue="all"
+              defaultValue="all providers"
               style={{ width: 150, height: "40px" }}
               options={[
-                { value: "all", label: "All" },
-                { value: "Last 24 Hours", label: "Last 24 Hours" },
+                { value: "all providers", label: "All providers" },
+               { value: "Last 24 Hours", label: "Last 24 Hours" },
                 { value: "Last Week", label: "Last Week" },
                 { value: "Last Fortnight", label: "Last Fortnight" },
                 { value: "Last Month", label: "Last Month" },
@@ -114,11 +167,24 @@ const UserManagement = () => {
           </div>
           <div>
             <Select
+              defaultValue="all providers"
+              style={{ width: 150, height: "40px" }}
+              options={[
+                { value: "all providers", label: "All providers" },
+                { value: "Pending Providers", label: "Pending Providers" },
+                { value: "Verified Providers", label: "Verified Providers" },
+                { value: "Unverified Providers", label: "Unverified Providers" },
+             
+              ]}
+            />
+          </div>
+          <div>
+            <Select
               defaultValue="all"
               style={{ width: 150, height: "40px" }}
               options={[
                 { value: "all", label: "All User" },
-                { value: "blocked", label: "Blocked User" },
+                { value: "blocked", label: "Blocked Provider" },
               ]}
             />
           </div>
@@ -189,4 +255,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default Provider;

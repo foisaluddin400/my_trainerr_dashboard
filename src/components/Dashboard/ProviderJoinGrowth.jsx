@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { Select } from "antd";
 
-const UserGrowthChart = () => {
+const ProviderJoinGrowth = () => {
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
   const [years, setYears] = useState([]);
@@ -69,7 +69,7 @@ const UserGrowthChart = () => {
             fontSize: "18px",
           }}
         >
-        Users Join growth
+        Providers Join growth
         </h3>
         <Select
           className="min-w-32"
@@ -130,4 +130,4 @@ const UserGrowthChart = () => {
   );
 };
 
-export default UserGrowthChart;
+export default ProviderJoinGrowth;

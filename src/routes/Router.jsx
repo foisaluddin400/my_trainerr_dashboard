@@ -19,6 +19,11 @@ import ResetPass from "../Auth/ResetPass";
 import Notification from "../page/Notification/Notification";
 import About from "../page/Settings/About";
 import Login from "../Auth/Login";
+import Provider from "../page/provider/Provider";
+import Booking from "../page/booking/Booking";
+import Support from "../page/Settings/Support";
+import Earning from "../page/earnings/Earning";
+import AllEarningGrowth from "../page/earnings/AllEarningGrowth";
 
 
 export const router = createBrowserRouter([
@@ -39,15 +44,20 @@ export const router = createBrowserRouter([
         element: <UserManagement></UserManagement>,
       },
       {
+        path: "/dashboard/providers",
+        element:<Provider></Provider>,
+      },
+       {
+        path: "/dashboard/bookings",
+        element:<Booking></Booking>,
+      },
+      {
         path: "/dashboard/CreatorManagement",
         element: <CreatorManagement></CreatorManagement>,
       },
+    
       {
-        path: "/dashboard/CategoriesManagement/Categories",
-        element: <Categories></Categories>,
-      },
-      {
-        path: "/dashboard/CategoriesManagement/Categories",
+        path: "/dashboard/Categories",
         element: <Categories></Categories>,
       },
       {
@@ -57,6 +67,18 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/Subscription",
         element: <Subscription></Subscription>,
+      },
+      {
+        path: "/dashboard/earnings",
+        element: <Earning></Earning>
+      },
+      {
+        path: "/dashboard/all-earnings",
+        element: <AllEarningGrowth></AllEarningGrowth>
+      },
+       {
+        path: "/dashboard/Support",
+        element: <Support></Support>
       },
       {
         path: "/dashboard/Settings/profile",
@@ -71,19 +93,19 @@ export const router = createBrowserRouter([
         element: <Notification></Notification>,
       },
       {
-        path: "/dashboard/Settings/Terms&Condition",
+        path: "/dashboard/Terms&Condition",
         element: <TermsCondition></TermsCondition>,
       },
       {
-        path: "/dashboard/Settings/FAQ",
+        path: "/dashboard/FAQ",
         element: <FAQ></FAQ>,
       },
       {
-        path: "/dashboard/Settings/aboutUs",
+        path: "/dashboard/aboutUs",
         element: <About></About>,
       },
       {
-        path: "/dashboard/Settings/PrivacyPolicy",
+        path: "/dashboard/PrivacyPolicy",
         element: <PrivacyPolicy></PrivacyPolicy>,
       },
     ],

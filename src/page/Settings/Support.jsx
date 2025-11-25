@@ -8,7 +8,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { LuEye } from "react-icons/lu";
 import { Navigate } from "../../Navigate";
 
-const UserManagement = () => {
+const Support = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
@@ -44,44 +44,64 @@ const UserManagement = () => {
     message.success(`User with ID ${id} blocked/unblocked successfully`);
   };
 
-  const columns = [
-    { title: "No", dataIndex: "no", key: "no" },
-    {
-      title: "Name",
-      key: "name",
-      render: (_, record) => (
-        <div className="flex items-center gap-3">
-          <img
-            src={record.image}
-            className="w-10 h-10 object-cover rounded-full"
-            alt="User Avatar"
-          />
-          <span>{record.name}</span>
+const columns = [
+  {
+    title: "SL",
+    dataIndex: "no",
+    key: "no",
+    render: (_, record, index) => index + 1,
+  },
+  {
+    title: "User Info",
+    key: "userInfo",
+    render: (_, record) => (
+      <div className="flex items-center gap-3">
+        <img
+          src={record.image}
+          className="w-10 h-10 object-cover rounded-full"
+          alt="User Avatar"
+        />
+        <div>
+          <p className="font-medium">{record.name}</p>
+          <p className="text-sm text-gray-500">{record.email}</p>
         </div>
-      ),
-    },
-    { title: "Phone Number", dataIndex: "phone", key: "phone" },
-    { title: "Email", dataIndex: "email", key: "email" },
-    {
-      title: "Action",
-      key: "action",
-      render: (_, record) => (
-        <div className="flex gap-2 items-center">
-          <button className="text-2xl" onClick={() => showModal2(record)}>
-            <LuEye />
-          </button>
-          <button
-            onClick={() => handleBlockUnblock(record?.block)}
-            className={`w-[30px] h-[30px] flex justify-center items-center text-xl rounded-md ${
-              record.blockId ? "bg-green-600" : "bg-red-600"
-            } text-white`}
-          >
-            <MdBlockFlipped />
-          </button>
-        </div>
-      ),
-    },
-  ];
+      </div>
+    ),
+  },
+  {
+    title: "Contact Reason",
+    key: "contactReason",
+    render: () => <span>Account Issue</span>, // Dummy reason
+  },
+  {
+    title: "Message / Details",
+    key: "message",
+    render: () => (
+      <span className="text-gray-700">
+        I need help regarding my account settings.
+      </span>
+    ),
+  },
+  {
+    title: "Action",
+    key: "action",
+    render: (_, record) => (
+      <div className="flex gap-3 items-center text-xl">
+        <button onClick={() => showModal2(record)}>
+          <LuEye />
+        </button>
+
+        {/* Link Icon → Navigate to specific page */}
+        <button
+          onClick={() => window.open("https://example.com/support-ticket", "_blank")}
+          className="text-blue-600"
+        >
+          🔗
+        </button>
+      </div>
+    ),
+  },
+];
 
   // Pagination
   const handlePageChange = (page) => {
@@ -96,7 +116,7 @@ const UserManagement = () => {
   return (
     <div className="bg-white p-3 h-[87vh] overflow-auto ">
       <div className="flex justify-between ">
-        <Navigate title={"User Management"} />
+        <Navigate title={"Support"} />
         <div className="flex gap-2">
            <div>
             <Select
@@ -189,4 +209,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default Support;

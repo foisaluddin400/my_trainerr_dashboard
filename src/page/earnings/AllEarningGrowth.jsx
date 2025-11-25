@@ -8,7 +8,10 @@ import { SearchOutlined } from "@ant-design/icons";
 import { LuEye } from "react-icons/lu";
 import { Navigate } from "../../Navigate";
 
-const UserManagement = () => {
+import { RiUserForbidLine } from "react-icons/ri";
+import EarningGrowth from "./EarningGrowth";
+
+const AllEarningGrowth = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
@@ -45,10 +48,15 @@ const UserManagement = () => {
   };
 
   const columns = [
-    { title: "No", dataIndex: "no", key: "no" },
     {
-      title: "Name",
-      key: "name",
+      title: "SI",
+      key: "si",
+      render: (_, record, index) => index + 1,
+    },
+
+    {
+      title: "User Info",
+      key: "userInfo",
       render: (_, record) => (
         <div className="flex items-center gap-3">
           <img
@@ -56,30 +64,54 @@ const UserManagement = () => {
             className="w-10 h-10 object-cover rounded-full"
             alt="User Avatar"
           />
-          <span>{record.name}</span>
+          <div>
+            <p className="font-semibold">{record.name}</p>
+            <p className="text-sm text-gray-500">{record.email}</p>
+          </div>
         </div>
       ),
     },
-    { title: "Phone Number", dataIndex: "phone", key: "phone" },
-    { title: "Email", dataIndex: "email", key: "email" },
+
     {
-      title: "Action",
-      key: "action",
-      render: (_, record) => (
-        <div className="flex gap-2 items-center">
-          <button className="text-2xl" onClick={() => showModal2(record)}>
-            <LuEye />
-          </button>
-          <button
-            onClick={() => handleBlockUnblock(record?.block)}
-            className={`w-[30px] h-[30px] flex justify-center items-center text-xl rounded-md ${
-              record.blockId ? "bg-green-600" : "bg-red-600"
-            } text-white`}
-          >
-            <MdBlockFlipped />
-          </button>
-        </div>
+      title: "Pay For",
+      key: "payFor",
+      render: () => <span>Subscription</span>, // Dummy text
+    },
+
+    {
+      title: "Provider Info",
+      key: "provider",
+      render: () => (
+        <span className="text-gray-600">Stripe / Bkash / Nagad</span>
       ),
+    },
+
+    {
+      title: "Date / Time",
+      key: "date",
+      render: (_, record) => (
+        <span className="text-gray-700">{record.createdAt} — 10:23 AM</span>
+      ),
+    },
+
+    {
+      title: "Pay On",
+      key: "payOn",
+      render: () => <span>Online</span>,
+    },
+
+    {
+      title: "Transaction ID",
+      key: "transactionId",
+      render: (_, record) => (
+        <span className="font-mono text-blue-600">TXN-{record.key}23A9</span>
+      ),
+    },
+
+    {
+      title: "Amount",
+      key: "amount",
+      render: () => <span className="font-semibold">$49.00</span>,
     },
   ];
 
@@ -96,14 +128,14 @@ const UserManagement = () => {
   return (
     <div className="bg-white p-3 h-[87vh] overflow-auto ">
       <div className="flex justify-between ">
-        <Navigate title={"User Management"} />
+        <Navigate title={"Manage Earning"} />
         <div className="flex gap-2">
-           <div>
+          <div>
             <Select
-              defaultValue="all"
+              defaultValue="all providers"
               style={{ width: 150, height: "40px" }}
               options={[
-                { value: "all", label: "All" },
+                { value: "all providers", label: "All providers" },
                 { value: "Last 24 Hours", label: "Last 24 Hours" },
                 { value: "Last Week", label: "Last Week" },
                 { value: "Last Fortnight", label: "Last Fortnight" },
@@ -114,14 +146,20 @@ const UserManagement = () => {
           </div>
           <div>
             <Select
-              defaultValue="all"
+              defaultValue="all Sessions"
               style={{ width: 150, height: "40px" }}
               options={[
-                { value: "all", label: "All User" },
-                { value: "blocked", label: "Blocked User" },
+                { value: "all Sessions", label: "All Sessions" },
+                { value: "1x Sessions", label: "1x Sessions" },
+                { value: "5x Sessions", label: "5x Sessions" },
+                {
+                  value: "10x Sessions",
+                  label: "10x Sessions",
+                },
               ]}
             />
           </div>
+         
           <Input
             placeholder="Search by name..."
             prefix={<SearchOutlined />}
@@ -147,46 +185,8 @@ const UserManagement = () => {
           showSizeChanger={false}
         />
       </div>
-
-      {/* Modal */}
-      <Modal
-        open={isModalOpen2}
-        centered
-        onCancel={handleCancel2}
-        footer={null}
-      >
-        {selectedUser && (
-          <div className="w-full max-w-md p-5 mx-auto">
-            <div className="flex flex-col items-center mb-6">
-              <div className="w-24 h-24 rounded-full bg-blue-100 mb-3 overflow-hidden">
-                <img
-                  src={selectedUser.image}
-                  alt="Profile avatar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-xl font-bold">{selectedUser.name}</h2>
-
-              <div className="flex items-center text-gray-500 mt-1">
-                <AiOutlinePhone size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">{selectedUser.phone}</span>
-              </div>
-
-              <div className="flex items-center text-gray-500 mt-1">
-                <GoLocation size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">Location unavailable</span>
-              </div>
-
-              <div className="flex items-center text-gray-500 mt-1">
-                <AiOutlineMail size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">{selectedUser.email}</span>
-              </div>
-            </div>
-          </div>
-        )}
-      </Modal>
     </div>
   );
 };
 
-export default UserManagement;
+export default AllEarningGrowth;

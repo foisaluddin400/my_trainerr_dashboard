@@ -152,7 +152,7 @@ const SidBar = () => {
   };
 
   return (
-    <div className="custom-sidebar h-[100vh] bg-[#18212b] text-gray-400">
+    <div className="custom-sidebar h-[100vh] bg-white border-r text-black">
       <div className="custom-sidebar-logo flex justify-center">
         <img src={logo} alt="Logo" className="w-[160px]" />
       </div>
@@ -179,8 +179,8 @@ const SidBar = () => {
                   isSettingsActive ||
                   isCreatorActive ||
                   isCategoriesActive
-                    ? "bg-gradient-to-r from-[#6e1515] border-l-2 border-green-500 to-[#ffffff00] text-white  "
-                    : "  hover:bg-gradient-to-r hover:from-[#470e0e]"
+                    ? "bg-gradient-to-r from-[#097070] border-l-2 border-green-500 to-[#ffffff00] text-white  "
+                    : "  hover:bg-gradient-to-r hover:from-[#aadbdb]"
                 }`}
                 onClick={(e) => {
                   if (item.children) {
@@ -229,7 +229,7 @@ const SidBar = () => {
                           ? " text-red-500"
                           : "hover:bg-gradient-to-r hover:from-[#470e0e]"
                       }`}
-                     onClick={() => {
+                      onClick={() => {
                         setSelectedKey(child.key); // শুধু selectedKey update হবে
                         // setExpandedKeys([]); // এটা আর লাগবে না
                       }}
@@ -247,16 +247,16 @@ const SidBar = () => {
       {/* Logout Button */}
       <div className="mx-4 ">
         <div className=" border-red-600 rounded w-full p-3 border mt-4">
-        <button
-          onClick={handleLogout}
-          className=" flex items-center text-red-600 text-start rounded-md  "
-        >
-          <span className="text-2xl">
-            <IoIosLogIn />
-          </span>
-          <span className="ml-3">Log Out</span>
-        </button>
-      </div>
+          <button
+            onClick={handleLogout}
+            className=" flex items-center text-red-600 text-start rounded-md  "
+          >
+            <span className="text-2xl">
+              <IoIosLogIn />
+            </span>
+            <span className="ml-3">Log Out</span>
+          </button>
+        </div>
       </div>
     </div>
   );

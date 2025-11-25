@@ -11,62 +11,62 @@
     "icon": "FiUser",
     "link": "/dashboard/UserManagement"
   },
-  
-  {
-    "key": "categoriesManagement",
-    "label": "Categories Management",
-    "icon": "TbCategory2",
-    "link": "/dashboard/CategoriesManagement/Categories",
-    "children": [
-      {
-        "key": "categories",
-        "label": "Categories",
-        "link": "/dashboard/CategoriesManagement/Categories"
-      },
-      {
-        "key": "subcategory",
-        "label": "Subcategory",
-        "link": "/dashboard/CategoriesManagement/Subcategory"
-      }
-    ]
+    {
+    "key": "providers",
+    "label": "Providers",
+    "icon": "FiUser",
+    "link": "/dashboard/providers"
+  },
+   {
+    "key": "booking",
+    "label": "Bookings",
+    "icon": "FiUser",
+    "link": "/dashboard/bookings"
   },
   {
-    "key": "subscription",
-    "label": "Subscription",
-    "icon": "TbCategory2",
-    "link": "/dashboard/Subscription"
+    "key": "Categories",
+    "label": "Session Category",
+    "icon": "FiUser",
+    "link": "/dashboard/Categories"
+  },
+ {
+    "key": "earnings",
+    "label": "Earnings",
+    "icon": "FiUser",
+    "link": "/dashboard/earnings"
   },
   {
-    "key": "settings",
-    "label": "Settings",
-    "icon": "IoSettingsOutline",
-    "link": "/dashboard/Settings/profile",
-    "children": [
-      {
-        "key": "profile",
-        "label": "Profile",
-        "link": "/dashboard/Settings/profile"
-      },
-      {
-        "key": "terms",
-        "label": "Terms & Condition",
-        "link": "/dashboard/Settings/Terms&Condition"
-      },
-      {
-        "key": "privacy",
-        "label": "Privacy Policy",
-        "link": "/dashboard/Settings/PrivacyPolicy"
-      },
-      {
-        "key": "faq",
-        "label": "FAQ",
-        "link": "/dashboard/Settings/FAQ"
-      },
-      {
-        "key": "about",
-        "label": "About Us",
-        "link": "/dashboard/Settings/aboutUs"
-      }
-    ]
+    "key": "Support",
+    "label": "Support",
+    "icon": "TbCategory2",
+    "link": "/dashboard/Support"
+  },
+  {
+    "key": "AboutUs",
+    "label": "About Us",
+    "icon": "TbCategory2",
+    "link": "/dashboard/aboutUs"
+  },
+
+  {
+    "key": "Terms&Condition",
+    "label": "Terms & Condition",
+    "icon": "TbCategory2",
+    "link": "/dashboard/Terms&Condition"
+  },
+
+  {
+    "key": "PrivacyPolicy",
+    "label": "Privacy & Policy",
+    "icon": "TbCategory2",
+    "link": "/dashboard/PrivacyPolicy"
+  },
+
+  {
+    "key": "FAQ",
+    "label": "Manage FAQ",
+    "icon": "TbCategory2",
+    "link": "/dashboard/FAQ"
   }
+  
 ]
