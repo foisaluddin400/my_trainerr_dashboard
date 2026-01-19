@@ -13,93 +13,99 @@ import { logout } from "../../page/redux/features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { FiUser } from "react-icons/fi";
 import { IoSettingsOutline } from "react-icons/io5";
-import { TbCategory2 } from "react-icons/tb";
-import items from "../item.json";
-const icons = {
-  FaHome,
-  FiUser,
+import {
+  TbCalendarUser,
+  TbCalendarX,
   TbCategory2,
-  IoSettingsOutline,
-};
+  TbDeviceIpadExclamation,
+  TbMessages,
+  TbReceiptDollar,
+} from "react-icons/tb";
 
-// const items = [
-//   {
-//     key: "dashboard",
-//     label: "Dashboard",
-//     icon: <FaHome />,
-//     link: "/",
-//   },
-//   {
-//     key: "userManagement",
-//     label: "User Management",
-//     icon: <FiUser />,
-//     link: "/dashboard/UserManagement",
-//   },
+import { VscDashboard } from "react-icons/vsc";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { HiOutlineExclamationCircle } from "react-icons/hi2";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { PiNoteLight } from "react-icons/pi";
+import { LuUserCog } from "react-icons/lu";
 
-//     {
-//     key: "VendorManagement",
-//     label: "Vendor Management",
-//     icon: <FiUser />,
-//     link: "/dashboard/VendorManagement",
-//   },
-//   {
-//     key: "categoriesManagement",
-//     label: "Categories Management",
-//     icon: <TbCategory2 />,
-//     link: "/dashboard/CategoriesManagement/Categories",
-//     children: [
-//       {
-//         key: "categories",
-//         label: "Categories",
-//         link: "/dashboard/CategoriesManagement/Categories",
-//       },
-//       {
-//         key: "subcategory",
-//         label: "Subcategory",
-//         link: "/dashboard/CategoriesManagement/Subcategory",
-//       },
-//     ],
-//   },
-//   {
-//     key: "subscription",
-//     label: "Subscription",
-//     icon: <TbCategory2 />,
-//     link: "/dashboard/Subscription",
-//   },
-//   {
-//     key: "settings",
-//     label: "Settings",
-//     icon:<IoSettingsOutline />,
-//     link: "/dashboard/Settings/profile",
-//     children: [
-//       {
-//         key: "profile",
-//         label: "Profile",
-//         link: "/dashboard/Settings/profile",
-//       },
-//       {
-//         key: "terms",
-//         label: "Terms & Condition",
-//         link: "/dashboard/Settings/Terms&Condition",
-//       },
-//       {
-//         key: "privacy",
-//         label: "Privacy Policy",
-//         link: "/dashboard/Settings/PrivacyPolicy",
-//       },
-//       {
-//         key: "faq",
-//         label: "FAQ",
-//         link: "/dashboard/Settings/FAQ",
-//       },
-//       {
-//         key: "about",
-//         label: "About Us",
-//         link: "/dashboard/Settings/aboutUs",
-//       },
-//     ],
-//   },
-// ];
+const items = [
+  {
+    key: "dashboard",
+    label: "Dashboard",
+    icon: <VscDashboard />,
+    link: "/",
+  },
+  {
+    key: "userManagement",
+    label: "User Management",
+    icon: <FiUser />,
+    link: "/dashboard/UserManagement",
+  },
+  {
+    key: "providers",
+    label: "Providers",
+    icon: <TbCalendarUser />,
+    link: "/dashboard/providers",
+  },
+  {
+    key: "booking",
+    label: "Bookings",
+    icon: <TbCalendarX />,
+    link: "/dashboard/bookings",
+  },
+  {
+    key: "Categories",
+    label: "Session Category",
+    icon: <MdOutlineDashboardCustomize />,
+    link: "/dashboard/Categories",
+  },
+  {
+    key: "earnings",
+    label: "Earnings",
+    icon: <TbReceiptDollar />,
+    link: "/dashboard/earnings",
+  },
+  {
+    key: "Support",
+    label: "Support",
+    icon: <TbMessages />,
+    link: "/dashboard/Support",
+  },
+  {
+    key: "profiles",
+    label: "Profile",
+     icon: <LuUserCog />,
+    link: "/dashboard/profile",
+  },
+  {
+    key: "AboutUs",
+    label: "About Us",
+    icon: <HiOutlineExclamationCircle />,
+    link: "/dashboard/aboutUs",
+  },
+
+  {
+    key: "Terms&Condition",
+    label: "Terms & Condition",
+    icon: <PiNoteLight />,
+    link: "/dashboard/Terms&Condition",
+  },
+  
+  {
+    key: "PrivacyPolicy",
+    label: "Privacy & Policy",
+    icon: <TbDeviceIpadExclamation />,
+    link: "/dashboard/PrivacyPolicy",
+  },
+
+  {
+    key: "FAQ",
+    label: "Manage FAQ",
+    icon: <AiOutlineQuestionCircle />,
+    link: "/dashboard/FAQ",
+  },
+];
 
 const SidBar = () => {
   const [selectedKey, setSelectedKey] = useState("dashboard");
@@ -169,7 +175,6 @@ const SidBar = () => {
           const isCategoriesActive =
             item.key === "categoriesManagement" &&
             item.children.some((child) => child.link === location.pathname);
-          const Icon = icons[item.icon];
           return (
             <div key={item.key}>
               <Link
@@ -191,9 +196,7 @@ const SidBar = () => {
                   }
                 }}
               >
-                <h1 className="w-5 mr-2">
-                  <Icon />
-                </h1>
+                <h1 className="w-4 mr-2">{item.icon}</h1>
 
                 <span className="block w-full ">{item.label}</span>
 

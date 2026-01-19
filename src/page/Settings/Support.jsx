@@ -7,6 +7,7 @@ import { GoLocation } from "react-icons/go";
 import { SearchOutlined } from "@ant-design/icons";
 import { LuEye } from "react-icons/lu";
 import { Navigate } from "../../Navigate";
+import { Link } from "react-router-dom";
 
 const Support = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,9 +88,9 @@ const columns = [
     key: "action",
     render: (_, record) => (
       <div className="flex gap-3 items-center text-xl">
-        <button onClick={() => showModal2(record)}>
+        <Link to={`/dashboard/Support/support-details/${record?.key}`}><button >
           <LuEye />
-        </button>
+        </button></Link>
 
         {/* Link Icon → Navigate to specific page */}
         <button
@@ -158,7 +159,7 @@ const columns = [
         className="custom-table"
       />
 
-      <div className="mt-4 flex justify-center">
+      <div className="bg-[#E0FFFF] py-3 flex justify-center">
         <Pagination
           current={currentPage}
           pageSize={pageSize}
@@ -168,43 +169,7 @@ const columns = [
         />
       </div>
 
-      {/* Modal */}
-      <Modal
-        open={isModalOpen2}
-        centered
-        onCancel={handleCancel2}
-        footer={null}
-      >
-        {selectedUser && (
-          <div className="w-full max-w-md p-5 mx-auto">
-            <div className="flex flex-col items-center mb-6">
-              <div className="w-24 h-24 rounded-full bg-blue-100 mb-3 overflow-hidden">
-                <img
-                  src={selectedUser.image}
-                  alt="Profile avatar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-xl font-bold">{selectedUser.name}</h2>
-
-              <div className="flex items-center text-gray-500 mt-1">
-                <AiOutlinePhone size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">{selectedUser.phone}</span>
-              </div>
-
-              <div className="flex items-center text-gray-500 mt-1">
-                <GoLocation size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">Location unavailable</span>
-              </div>
-
-              <div className="flex items-center text-gray-500 mt-1">
-                <AiOutlineMail size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">{selectedUser.email}</span>
-              </div>
-            </div>
-          </div>
-        )}
-      </Modal>
+  
     </div>
   );
 };

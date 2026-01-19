@@ -93,7 +93,7 @@ const Login = () => {
           <Form.Item>
             <button
               htmlType="submit"
-              className="w-full bg-red-500 py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
+              className="w-full bg-[#0C8A8A] py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
             >
               Continue
             </button>

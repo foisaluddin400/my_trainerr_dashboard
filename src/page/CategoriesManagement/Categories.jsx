@@ -152,13 +152,13 @@ const Categories = () => {
         <div className="flex gap-2 justify-end">
           <div
             onClick={() => handleEdit(record)}
-            className="w-[36px] h-[36px] text-lg bg-[#007BFF] flex justify-center items-center text-white rounded cursor-pointer"
+            className="w-[36px] h-[36px] text-lg border flex justify-center items-center text-gray-600 rounded cursor-pointer"
           >
             <MdOutlineModeEdit />
           </div>
           <div
             onClick={() => handleDeleteCategory(record._id)}
-            className="w-[36px] h-[36px] text-lg bg-[#E63946] flex justify-center items-center text-white rounded cursor-pointer"
+            className="w-[36px] h-[36px] text-lg border border-red-500 flex justify-center items-center text-red-500 rounded cursor-pointer"
           >
             <RiDeleteBin6Line />
           </div>
@@ -195,7 +195,7 @@ const Categories = () => {
         loading={isLoading}
       />
 
-      <div className="mt-4 flex justify-center">
+      <div className=" bg-[#E0FFFF] py-3 flex justify-center">
         <Pagination
           current={currentPage}
           pageSize={pageSize}
