@@ -19,10 +19,12 @@ import { TbCategory2 } from "react-icons/tb";
 import { FaChevronRight, FaHome } from "react-icons/fa";
 import items from "../item.json";
 import { IoIosLogIn } from "react-icons/io";
+import { AiOutlineUser } from "react-icons/ai";
+import { VscDashboard } from "react-icons/vsc";
 
 const icons = {
-  FaHome,
-  FiUser,
+  VscDashboard,
+  AiOutlineUser,
   TbCategory2,
   IoSettingsOutline,
 };
@@ -253,11 +255,11 @@ const Header = () => {
 
           {/* Profile Link (unchanged) */}
           <Link to={"/dashboard/Settings/profile"}>
-            <div className="flex gap-3 border border-[#1aafaf] p-2 rounded-md cursor-pointer hover:bg-gray-50 transition">
+            <div className="flex items-center gap-3 border border-[#1aafaf] p-2 rounded-md cursor-pointer hover:bg-gray-50 transition">
               <div>
                 <img className="w-[30px] h-[30px]" src={profilee} alt="profile" />
               </div>
-              <div className="text-end">
+              <div className="text-end text-[#129292]">
                 <h3>Mojahid</h3>
               </div>
             </div>

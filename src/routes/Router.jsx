@@ -24,6 +24,9 @@ import Booking from "../page/booking/Booking";
 import Support from "../page/Settings/Support";
 import Earning from "../page/earnings/Earning";
 import AllEarningGrowth from "../page/earnings/AllEarningGrowth";
+import UserDetails from "../page/UserManagement/UserDetails";
+import ProviderDetails from "../page/provider/ProviderDetails";
+import SupportDetails from "../page/Settings/SupportDetails";
 
 
 export const router = createBrowserRouter([
@@ -43,9 +46,17 @@ export const router = createBrowserRouter([
         path: "/dashboard/UserManagement",
         element: <UserManagement></UserManagement>,
       },
+        {
+        path: "/dashboard/UserManagement/user-details/:id",
+        element: <UserDetails></UserDetails>
+      },
       {
         path: "/dashboard/providers",
         element:<Provider></Provider>,
+      },
+       {
+        path: "/dashboard/providers/provider-details/:id",
+        element:<ProviderDetails></ProviderDetails>
       },
        {
         path: "/dashboard/bookings",
@@ -80,14 +91,15 @@ export const router = createBrowserRouter([
         path: "/dashboard/Support",
         element: <Support></Support>
       },
-      {
-        path: "/dashboard/Settings/profile",
-        element: <Profile></Profile>,
+        {
+        path: "/dashboard/Support/support-details/:id",
+        element: <SupportDetails></SupportDetails>
       },
       {
-        path: "/dashboard/Settings/profile",
+        path: "/dashboard/profile",
         element: <Profile></Profile>,
       },
+      
       {
         path: "/dashboard/Settings/notification",
         element: <Notification></Notification>,

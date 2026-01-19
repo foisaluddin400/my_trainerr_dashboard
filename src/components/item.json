@@ -2,7 +2,7 @@
   {
     "key": "dashboard",
     "label": "Dashboard",
-    "icon": "FaHome",
+    "icon": "VscDashboard",
     "link": "/"
   },
   {
@@ -14,7 +14,7 @@
     {
     "key": "providers",
     "label": "Providers",
-    "icon": "FiUser",
+    "icon": "TbCalendarUser",
     "link": "/dashboard/providers"
   },
    {

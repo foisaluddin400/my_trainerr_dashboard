@@ -106,7 +106,7 @@ const ShopRegistration = () => {
             <Area
               type="monotone"
               dataKey="value"
-              stroke="#E63946"
+              stroke={false}
               fillOpacity={1}
               fill="url(#colorValue)"
             />

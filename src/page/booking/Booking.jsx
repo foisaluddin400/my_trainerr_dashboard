@@ -137,7 +137,7 @@ const columns = [
         className="custom-table"
       />
 
-      <div className="mt-4 flex justify-center">
+      <div className=" bg-[#E0FFFF] py-3 flex justify-center">
         <Pagination
           current={currentPage}
           pageSize={pageSize}
@@ -147,43 +147,91 @@ const columns = [
         />
       </div>
 
-      {/* Modal */}
-      <Modal
-        open={isModalOpen2}
-        centered
-        onCancel={handleCancel2}
-        footer={null}
-      >
-        {selectedUser && (
-          <div className="w-full max-w-md p-5 mx-auto">
-            <div className="flex flex-col items-center mb-6">
-              <div className="w-24 h-24 rounded-full bg-blue-100 mb-3 overflow-hidden">
-                <img
-                  src={selectedUser.image}
-                  alt="Profile avatar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-xl font-bold">{selectedUser.name}</h2>
+  
+    {/* Modal */}
+<Modal open={isModalOpen2} centered onCancel={handleCancel2} footer={null}>
+  {selectedUser && (
+    <div className="w-full max-w-xl mx-auto p-5">
 
-              <div className="flex items-center text-gray-500 mt-1">
-                <AiOutlinePhone size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">{selectedUser.phone}</span>
-              </div>
+      {/* USER INFO */}
+      <h2 className="text-lg font-semibold mb-3 border-b pb-1">User Information</h2>
 
-              <div className="flex items-center text-gray-500 mt-1">
-                <GoLocation size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">Location unavailable</span>
-              </div>
+      <div className="flex items-center gap-4 mb-5">
+        <img
+          src={selectedUser.image}
+          alt="User Avatar"
+          className="w-20 h-20 rounded-full object-cover border"
+        />
+        <div>
+          <p className="text-lg font-bold">{selectedUser.name}</p>
 
-              <div className="flex items-center text-gray-500 mt-1">
-                <AiOutlineMail size={16} className="text-gray-400" />
-                <span className="ml-1 text-sm">{selectedUser.email}</span>
-              </div>
-            </div>
+          <div className="flex items-center text-gray-600 mt-1">
+            <AiOutlinePhone size={16} />
+            <span className="ml-2">{selectedUser.phone}</span>
           </div>
-        )}
-      </Modal>
+
+          <div className="flex items-center text-gray-600 mt-1">
+            <AiOutlineMail size={16} />
+            <span className="ml-2">{selectedUser.email}</span>
+          </div>
+
+          <div className="flex items-center text-gray-600 mt-1">
+            <GoLocation size={16} />
+            <span className="ml-2">Location unavailable</span>
+          </div>
+        </div>
+      </div>
+
+      {/* PROVIDER INFO */}
+      <h2 className="text-lg font-semibold mb-3 border-b pb-1">Provider Information</h2>
+
+      <div className="mb-5">
+        <p className="text-gray-700">
+          <span className="font-semibold">Provider Name:</span> Provider ABC
+        </p>
+
+        <p className="text-gray-700 mt-1">
+          <span className="font-semibold">Expertise:</span>{" "}
+          <span className="px-3 py-1 rounded-full border text-red-500 border-red-400 inline-block ml-2">
+            CrossFit 💪
+          </span>
+        </p>
+
+        <p className="text-gray-700 mt-1">
+          <span className="font-semibold">Contact:</span> Not Available
+        </p>
+      </div>
+
+      {/* BOOKING INFO */}
+      <h2 className="text-lg font-semibold mb-3 border-b pb-1">Booking Information</h2>
+
+      <div className="mb-3">
+        <p className="text-gray-700">
+          <span className="font-semibold">Session Date:</span> {selectedUser.createdAt}
+        </p>
+
+        <p className="text-gray-700 mt-1">
+          <span className="font-semibold">Session Type:</span>
+          <span className="px-3 py-1 rounded-full border text-red-500 border-red-400 inline-block ml-2">
+            CrossFit 💪
+          </span>
+        </p>
+
+        <p className="text-gray-700 mt-1">
+          <span className="font-semibold">Booking Status:</span>{" "}
+          <span
+            className={`ml-2 font-semibold ${
+              selectedUser.blockId ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {selectedUser.blockId ? "Active" : "Pending"}
+          </span>
+        </p>
+      </div>
+    </div>
+  )}
+</Modal>
+
     </div>
   );
 };
