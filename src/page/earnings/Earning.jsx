@@ -148,10 +148,12 @@ const Earning = () => {
         </div>
       </div>
 
-<div className="flex justify-between pt-6 pb-3">
-    <h1 className="text-2xl">Recent Transaction</h1>
-    <Link to={'/dashboard/all-earnings'}><button className="text-[#0C8A8A]">View All</button></Link>
-</div>
+      <div className="flex justify-between pt-6 pb-3">
+        <h1 className="text-2xl">Recent Transaction</h1>
+        <Link to={"/dashboard/all-earnings"}>
+          <button className="text-[#0C8A8A]">View All</button>
+        </Link>
+      </div>
       <Table
         dataSource={paginatedUsers}
         columns={columns}
@@ -160,7 +162,7 @@ const Earning = () => {
         className="custom-table"
       />
 
-      <div className="mt-4 flex justify-center">
+      <div className=" bg-[#E0FFFF] py-3 flex justify-center">
         <Pagination
           current={currentPage}
           pageSize={pageSize}

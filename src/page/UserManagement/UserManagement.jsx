@@ -7,6 +7,7 @@ import { GoLocation } from "react-icons/go";
 import { SearchOutlined } from "@ant-design/icons";
 import { LuEye } from "react-icons/lu";
 import { Navigate } from "../../Navigate";
+import { Link } from "react-router-dom";
 
 const UserManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -67,14 +68,14 @@ const UserManagement = () => {
       key: "action",
       render: (_, record) => (
         <div className="flex gap-2 items-center">
-          <button className="text-2xl" onClick={() => showModal2(record)}>
+          <Link to={`/dashboard/UserManagement/user-details/${record?.key}`}><button className="text-2xl">
             <LuEye />
-          </button>
+          </button></Link>
           <button
             onClick={() => handleBlockUnblock(record?.block)}
             className={`w-[30px] h-[30px] flex justify-center items-center text-xl rounded-md ${
-              record.blockId ? "bg-green-600" : "bg-red-600"
-            } text-white`}
+              record.blockId ? "border text-gray-500" : "border border-red-500 text-red-500"
+            } `}
           >
             <MdBlockFlipped />
           </button>
@@ -138,7 +139,7 @@ const UserManagement = () => {
         className="custom-table"
       />
 
-      <div className="mt-4 flex justify-center">
+      <div className=" bg-[#E0FFFF] py-3 flex justify-center">
         <Pagination
           current={currentPage}
           pageSize={pageSize}

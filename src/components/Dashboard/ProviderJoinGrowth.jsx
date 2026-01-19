@@ -84,7 +84,7 @@ const ProviderJoinGrowth = () => {
           options={years.map((item) => ({ value: item, label: item }))}
         />
       </div>
-      <ResponsiveContainer width="100%" height="90%">
+      <ResponsiveContainer width="100%" height={400}>
         <BarChart
           data={monthlyData}
           margin={{ top: 20, right: 20, left: 0, bottom: 10 }}

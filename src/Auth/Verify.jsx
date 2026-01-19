@@ -42,7 +42,7 @@ const Verify = () => {
         <Link to={"/reset-password"}>
           <button
             htmlType="submit"
-            className="w-full bg-red-500 py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
+            className="w-full bg-[#0C8A8A] py-3 text-white rounded-md hover:bg-primary-dark transition-colors"
           >
             Continue
           </button>
@@ -52,7 +52,7 @@ const Verify = () => {
           You have not received the email?{" "}
           <span
             // onClick={handleResend}
-            className="text-[#D17C51] cursor-pointer pl-2"
+            className="text-[#0C8A8A] cursor-pointer pl-2"
           >
             Resend
           </span>
